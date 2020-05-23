@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookSubscriptions.API", "BookSubscriptions.API\BookSubscriptions.API.csproj", "{6A23AF4B-04E5-481E-BCE7-1194F5315939}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookSubscriptions.Core", "BookSubscriptions.Core\BookSubscriptions.Core.csproj", "{57018DC6-BAB3-4CBB-9EB0-7286B43FFDBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookSubscriptions.Infrastructure", "BookSubscriptions.Infrastructure\BookSubscriptions.Infrastructure.csproj", "{6AFBCB6A-929B-42AF-9397-3030614E9821}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A23AF4B-04E5-481E-BCE7-1194F5315939}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A23AF4B-04E5-481E-BCE7-1194F5315939}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A23AF4B-04E5-481E-BCE7-1194F5315939}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A23AF4B-04E5-481E-BCE7-1194F5315939}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57018DC6-BAB3-4CBB-9EB0-7286B43FFDBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57018DC6-BAB3-4CBB-9EB0-7286B43FFDBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57018DC6-BAB3-4CBB-9EB0-7286B43FFDBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57018DC6-BAB3-4CBB-9EB0-7286B43FFDBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AFBCB6A-929B-42AF-9397-3030614E9821}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AFBCB6A-929B-42AF-9397-3030614E9821}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AFBCB6A-929B-42AF-9397-3030614E9821}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AFBCB6A-929B-42AF-9397-3030614E9821}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
