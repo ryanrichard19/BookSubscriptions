@@ -37,7 +37,7 @@ namespace BookSubscriptions.Core.UseCases
                     }
                 }
             }
-            outputPort.Handle(new LoginResponse(new[] { new Error("login_failure", "Invalid username or password.") }));
+            outputPort.Handle(new LoginResponse(new[] { new Error("login_failure", "Invalid email or password.") }));
             return false;
         }
     }
