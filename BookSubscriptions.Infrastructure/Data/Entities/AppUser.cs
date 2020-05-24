@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
 
 namespace BookSubscriptions.Infrastructure.Data.Entities
 {
@@ -8,5 +9,6 @@ namespace BookSubscriptions.Infrastructure.Data.Entities
         // Extended Properties
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public List<Subscribtion> Subscribtions { get; set; }
     }
 }

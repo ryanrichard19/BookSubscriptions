@@ -1,0 +1,65 @@
+<div class="card">
+    <div class="card-header">
+      {{pageTitle}}
+    </div>
+  
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-2">Filter by:</div>
+        <div class="col-md-4">
+          <input type="text"
+                 [(ngModel)]="listFilter" />
+        </div>
+      </div>
+      <div class="row"
+           *ngIf="listFilter">
+        <div class="col-md-6">
+          <h4>Filtered by: {{listFilter}}</h4>
+        </div>
+      </div>
+  
+      <div class="table-responsive">
+        <table class="table mb-0"
+               *ngIf="books && books.length">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <!-- <th>Description</th> -->
+              <th>Price</th>
+              <th>5 Star Rating</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let book of filteredBooks">
+              <td>
+                <a [routerLink]="[book.id]"
+                   [queryParams]="{filterBy: listFilter}">
+                  {{ book.title }}
+                </a>
+              </td>
+              <td>{{ book.author }}</td>
+              <!-- <td>{{ book.description }}</td> -->
+              <td>{{ book.price | currency:"ZAR":"symbol":"1.2-2" }}</td>
+              <td>
+                <app-star [rating]="book.starRating"> </app-star>
+              </td>
+              <td>
+                <button class="btn btn-outline-primary btn-sm"
+                        [routerLink]="[book.id, 'edit']">
+                  Subscribe
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+  </div>
+  
+  <div *ngIf="errorMessage"
+       class="alert alert-danger">
+    Error: {{ errorMessage }}
+  </div>

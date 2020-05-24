@@ -1,5 +1,6 @@
 ﻿using System;
 using AutoMapper;
+using BookSubscriptions.API.AutoMapper;
 using BookSubscriptions.Infrastructure.Data.Mapping;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -11,7 +12,9 @@ namespace BookSubscriptions.API.Configurations
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
 
-            services.AddAutoMapper(typeof(DataProfile));
+            services.AddAutoMapper(
+                typeof(DataProfile),
+                typeof(BookToDTOProfile));
         }
     }
 }

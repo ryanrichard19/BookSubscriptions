@@ -9,6 +9,7 @@
     <Folder Include="Controllers\" />
     <Folder Include="IoC\" />
     <Folder Include="Configurations\" />
+    <Folder Include="AutoMapper\" />
   </ItemGroup>
 
 

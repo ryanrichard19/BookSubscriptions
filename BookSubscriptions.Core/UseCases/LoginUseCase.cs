@@ -22,10 +22,10 @@ namespace BookSubscriptions.Core.UseCases
 
         public async Task<bool> Handle(LoginRequest message, IOutputPort<LoginResponse> outputPort)
         {
-            if (!string.IsNullOrEmpty(message.UserName) && !string.IsNullOrEmpty(message.Password))
+            if (!string.IsNullOrEmpty(message.Email) && !string.IsNullOrEmpty(message.Password))
             {
                 // confirm we have a user with the given name
-                var user = await _userRepository.FindByName(message.UserName);
+                var user = await _userRepository.FindByEmail(message.Email);
                 if (user != null)
                 {
                     // validate password

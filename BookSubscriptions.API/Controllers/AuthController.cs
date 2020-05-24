@@ -3,11 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using BookSubscriptions.Core.Dto.UseCaseRequests;
 using BookSubscriptions.Core.Interfaces.UseCases;
 using BookSubscriptions.Api.Presenters;
+using Microsoft.AspNetCore.Cors;
 
 namespace BookSubscriptions.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("CorsPolicy")]
     public class AuthController : ControllerBase
     {
         private readonly ILoginUseCase _loginUseCase;
@@ -27,7 +29,7 @@ namespace BookSubscriptions.Api.Controllers
             {
                 return BadRequest(ModelState);
             }
-            await _loginUseCase.Handle(new LoginRequest(request.UserName, request.Password), _loginPresenter);
+            await _loginUseCase.Handle(new LoginRequest(request.Email, request.Password), _loginPresenter);
             return _loginPresenter.ContentResult;
         }
     }

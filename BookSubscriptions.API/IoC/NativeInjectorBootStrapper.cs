@@ -26,6 +26,7 @@ namespace BookSubscriptions.API.IoC
             services.AddScoped<ILoginUseCase, LoginUseCase>();
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IJwtFactory, JwtFactory>();
             services.AddScoped<UserManager<AppUser>>();
 

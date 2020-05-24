@@ -8,6 +8,7 @@ namespace BookSubscriptions.Core.Interfaces.Gateways.Repositories
     {
         Task<CreateUserResponse> Create(User user, string password);
         Task<User> FindByName(string userName);
+        Task<User> FindByEmail(string email);
         Task<bool> CheckPassword(User user, string password);
     }
 }
