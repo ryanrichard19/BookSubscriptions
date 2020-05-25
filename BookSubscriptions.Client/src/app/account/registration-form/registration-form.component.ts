@@ -16,10 +16,10 @@ export class RegistrationFormComponent implements OnInit {
   isRequesting: boolean;
   submitted = false;
   userRegistration: UserRegistration = {
-    FirstName: 'testuser',
-    LastName: 'testuser',
-    Email: 'testuser@testuser.com',
-    Password: 'P@ssw0rd',
+    FirstName: '',
+    LastName: '',
+    Email: '',
+    Password: '',
   };
 
   constructor(
