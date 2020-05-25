@@ -8,7 +8,7 @@ email: ryan@euromonitor.com
 password: P@ssw0rd
 
 ## Back End API - .Net Core 3.1, Sqlite DB, Entity Framework, Swagger, Identity, JWT Tokens, XUnit, Moq
-This project was created using [clean architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html): pattern and principles in mind. 
+This project was created using [The Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html): pattern and principles in mind. 
 
 - set up of project (ORM, Sqlite, Swagger, Indentity, JWT, Xunit and Moq)
 - I have created and implemented the Registration and Login end points
