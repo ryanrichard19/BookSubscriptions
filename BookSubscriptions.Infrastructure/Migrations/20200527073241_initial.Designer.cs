@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookSubscriptions.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200524143417_Initial")]
-    partial class Initial
+    [Migration("20200527073241_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -117,34 +117,40 @@ namespace BookSubscriptions.Infrastructure.Migrations
                         .IsUnique()
                         .HasName("UserNameIndex");
 
+                    b.HasIndex("UserName")
+                        .IsUnique();
+
                     b.ToTable("AspNetUsers");
                 });
 
             modelBuilder.Entity("BookSubscriptions.Infrastructure.Data.Entities.Subscribtion", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("AppUserId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("AppUserId")
+                    b.Property<int>("BookId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("AppUserId1")
                         .HasColumnType("TEXT");
-
-                    b.Property<int?>("BookId")
-                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("Created")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
                     b.Property<DateTime>("Modified")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("AppUserId", "BookId");
 
-                    b.HasIndex("AppUserId");
+                    b.HasIndex("AppUserId1");
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("Subscribtions");
+                    b.ToTable("Subscribtion");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -279,11 +285,13 @@ namespace BookSubscriptions.Infrastructure.Migrations
                 {
                     b.HasOne("BookSubscriptions.Infrastructure.Data.Entities.AppUser", "AppUser")
                         .WithMany("Subscribtions")
-                        .HasForeignKey("AppUserId");
+                        .HasForeignKey("AppUserId1");
 
                     b.HasOne("BookSubscriptions.Core.Domain.Entities.Book", "Book")
                         .WithMany()
-                        .HasForeignKey("BookId");
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

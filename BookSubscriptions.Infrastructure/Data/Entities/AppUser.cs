@@ -9,6 +9,6 @@ namespace BookSubscriptions.Infrastructure.Data.Entities
         // Extended Properties
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public List<Subscribtion> Subscribtions { get; set; }
+        public virtual ICollection<Subscribtion> Subscribtions { get; set; }
     }
 }
