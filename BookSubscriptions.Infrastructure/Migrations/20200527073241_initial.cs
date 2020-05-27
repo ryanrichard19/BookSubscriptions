@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BookSubscriptions.Infrastructure.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -174,31 +174,32 @@ namespace BookSubscriptions.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Subscribtions",
+                name: "Subscribtion",
                 columns: table => new
                 {
+                    AppUserId = table.Column<int>(nullable: false),
+                    BookId = table.Column<int>(nullable: false),
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Created = table.Column<DateTime>(nullable: false),
                     Modified = table.Column<DateTime>(nullable: false),
-                    AppUserId = table.Column<string>(nullable: true),
-                    BookId = table.Column<int>(nullable: true)
+                    AppUserId1 = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Subscribtions", x => x.Id);
+                    table.PrimaryKey("PK_Subscribtion", x => new { x.AppUserId, x.BookId });
                     table.ForeignKey(
-                        name: "FK_Subscribtions_AspNetUsers_AppUserId",
-                        column: x => x.AppUserId,
+                        name: "FK_Subscribtion_AspNetUsers_AppUserId1",
+                        column: x => x.AppUserId1,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Subscribtions_Books_BookId",
+                        name: "FK_Subscribtion_Books_BookId",
                         column: x => x.BookId,
                         principalTable: "Books",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -239,13 +240,19 @@ namespace BookSubscriptions.Infrastructure.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Subscribtions_AppUserId",
-                table: "Subscribtions",
-                column: "AppUserId");
+                name: "IX_AspNetUsers_UserName",
+                table: "AspNetUsers",
+                column: "UserName",
+                unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Subscribtions_BookId",
-                table: "Subscribtions",
+                name: "IX_Subscribtion_AppUserId1",
+                table: "Subscribtion",
+                column: "AppUserId1");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Subscribtion_BookId",
+                table: "Subscribtion",
                 column: "BookId");
         }
 
@@ -267,7 +274,7 @@ namespace BookSubscriptions.Infrastructure.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Subscribtions");
+                name: "Subscribtion");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

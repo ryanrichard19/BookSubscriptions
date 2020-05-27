@@ -26,5 +26,10 @@ namespace BookSubscriptions.Infrastructure.Data.EntityFramework.Repositories
         {
             return _dbContext.Books.ToListAsync();
         }
+
+        public Task<Book> GetByIdAsync(int id)
+        {
+            return _dbContext.Books.SingleOrDefaultAsync(e => e.Id == id);
+        }
     }
 }

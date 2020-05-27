@@ -14,6 +14,22 @@ namespace BookSubscriptions.Infrastructure.Data.EntityFramework
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<AppUser>()
+                .HasIndex(a => a.UserName)
+                .IsUnique();
+
+            // Many-to-many: AppUser <-> Book
+            modelBuilder.Entity<Subscribtion>()
+                .HasKey(ca => new { ca.AppUserId, ca.BookId });
+
+
+
+        }
+
         public override int SaveChanges()
         {
             AddAuitInfo();
@@ -27,7 +43,6 @@ namespace BookSubscriptions.Infrastructure.Data.EntityFramework
         }
         public DbSet<Book> Books { get; set; }
 
-        public DbSet<Subscribtion> Subscribtions { get; set; }
 
         private void AddAuitInfo()
         {
