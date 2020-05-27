@@ -108,7 +108,7 @@ namespace BookSubscriptions.API
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Conference Planner API", Version = "v1" });
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Book Subscritions API", Version = "v1" });
 
             });
 
@@ -150,7 +150,7 @@ namespace BookSubscriptions.API
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "BookSubscritions V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Book Subscritions V1");
             });
 
 

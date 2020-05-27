@@ -14,7 +14,7 @@ namespace BookSubscriptions.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [EnableCors("CorsPolicy")]
-    public class BookController
+    public class BookController : ControllerBase
     {
         private readonly IBookRepository _bookRepository;
         private readonly IMapper _mapper;
@@ -27,12 +27,21 @@ namespace BookSubscriptions.API.Controllers
             _mapper = mapper;
         }
 
-    [HttpGet]
-    [AllowAnonymous]
-    public async Task<ActionResult<IEnumerable<BookDTO>>> GetBooks()
-    {
-        var books = await _bookRepository.ListAsync();
-        return _mapper.Map<List<Book>, List<BookDTO>>(books);
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<BookDTO>>> GetBooks()
+        {
+            var books = await _bookRepository.ListAsync();
+            return _mapper.Map<List<Book>, List<BookDTO>>(books);
+        }
+
+
+        //[HttpGet]
+        //[AllowAnonymous]
+        //public async Task<ActionResult<BookDTO>> GetBook(int id)
+        //{
+        //    var book = await _bookRepository.GetByIdAsync(id);
+        //    return _mapper.Map<Book, BookDTO>(book);
+        //}
     }
-}
 }
