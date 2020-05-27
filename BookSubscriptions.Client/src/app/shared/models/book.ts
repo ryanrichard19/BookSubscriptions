@@ -6,3 +6,9 @@ export interface Book {
     description: string;
     starRating: number;
   }
+
+
+  export interface BookResolved {
+    book: Book;
+    error?: any;
+  }

@@ -5,6 +5,9 @@ import { BooksComponent } from './books.component';
 
 
 import { SharedModule } from '../shared/modules/shared.module';
+import { BookDetailsComponent } from './book-details.component';
+import { BookResolver } from './book-resolver-service';
+import { StarComponent } from '../star/star.component';
 
 
 @NgModule({
@@ -15,10 +18,17 @@ import { SharedModule } from '../shared/modules/shared.module';
         path: '',
         component: BooksComponent
       },
+      {
+        path: ':id',
+        component: BookDetailsComponent,
+        resolve: { resolvedData: BookResolver }
+      }
     ])
   ],
   declarations: [
-    BooksComponent
+    BooksComponent,
+    BookDetailsComponent,
+    StarComponent
   ]
 })
 export class BooksModule { }

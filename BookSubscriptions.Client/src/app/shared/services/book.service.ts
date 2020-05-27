@@ -15,7 +15,8 @@ export class BookService extends BaseService {
   private booksUrl = '/book';
   baseUrl = '';
   public books: Book[];
-
+  public book: Book;
+d
   constructor(
     private http: HttpClient,
     private configService: ConfigService
@@ -34,6 +35,31 @@ export class BookService extends BaseService {
       );
     }
 
+    getBook(id: number): Observable<Book> {
+      if (id === 0) {
+        return of(this.initializeBook());
+      }
+      const url = `${this.baseUrl}${this.booksUrl}/${id}`;
+      return this.http.get<Book>(url)
+        .pipe(
+          tap((data)  => {
+            this.book = data;
+          }),
+          catchError(this.handleError)
+        );
+    }
+    
+    private initializeBook(): Book {
+      // Return an initialized object
+      return {
+        id: 0,
+        title: null,
+        author: null,
+        price: null,
+        description: null,
+        starRating: null
+      };
+    }
 
  
 }

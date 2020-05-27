@@ -14,9 +14,8 @@ import { PageNotFoundComponent } from './page-not-found.component';
 
 import { MessageModule } from './messages/messages.module';
 import { UserService } from './shared/services/user.service';
-import { BooksComponent } from './books/books.component';
 import { BookService } from './shared/services/book.service';
-import { StarComponent } from './star/star.component';
+
 
 
 
@@ -26,8 +25,6 @@ import { StarComponent } from './star/star.component';
     HomeComponent,
     SpinnerComponent,
     PageNotFoundComponent,
-    BooksComponent,
-    StarComponent
   ],
   imports: [
     BrowserModule,
