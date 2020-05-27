@@ -27,21 +27,24 @@ namespace BookSubscriptions.API.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet]
         [AllowAnonymous]
-        public async Task<ActionResult<IEnumerable<BookDTO>>> GetBooks()
+        [HttpGet]
+        public async Task<ActionResult<List<BookDTO>>> GetBooks()
         {
             var books = await _bookRepository.ListAsync();
             return _mapper.Map<List<Book>, List<BookDTO>>(books);
         }
 
-
-        //[HttpGet]
-        //[AllowAnonymous]
-        //public async Task<ActionResult<BookDTO>> GetBook(int id)
-        //{
-        //    var book = await _bookRepository.GetByIdAsync(id);
-        //    return _mapper.Map<Book, BookDTO>(book);
-        //}
+        [AllowAnonymous]
+        [HttpGet("{id}")]
+        public async Task<ActionResult<BookDTO>> GetBook(int id)
+        {
+            var book = await _bookRepository.GetByIdAsync(id);
+            if (book == null)
+            {
+                return NotFound();
+            }
+            return _mapper.Map<Book, BookDTO>(book);
+        }
     }
 }

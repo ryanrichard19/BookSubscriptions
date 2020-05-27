@@ -146,12 +146,13 @@ namespace BookSubscriptions.API
 
             app.UseHttpsRedirection();
 
+
             app.UseSwagger();
 
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Book Subscritions V1");
-            });
+            app.UseSwaggerUI(options =>
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Book Subscritions API v1")
+            );
+
 
 
             app.UseRouting();
