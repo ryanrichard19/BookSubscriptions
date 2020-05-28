@@ -27,6 +27,6 @@ This project was created using [The Clean Architecture](https://blog.cleancoder.
 - added a book listing component with interaction to the API service
 
 ### Still to do 
-- When clicking the subscribe button check if user is logged in - If no redirect the user to the login page - if yes a pop up confirmation should to confirm subscription
+- When clicking the subscribe button check if user is logged in - If no redirect the user to the login page - if yes a pop up confirmation should confirm subscription
 - When logged in the user should be able to unsubscribe from a book. When clicking this button a pop up confirmation should appear to confirm this. 
 - Clean-up of front end to make it prettier
