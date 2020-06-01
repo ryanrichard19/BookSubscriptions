@@ -6,7 +6,7 @@ using BookSubscriptions.Core.Domain.Entities;
 using BookSubscriptions.Core.Dto;
 using BookSubscriptions.Core.Dto.GatewayResponses.Repositories;
 using BookSubscriptions.Core.Interfaces.Gateways.Repositories;
-using BookSubscriptions.Infrastructure.Data.Entities;
+
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 

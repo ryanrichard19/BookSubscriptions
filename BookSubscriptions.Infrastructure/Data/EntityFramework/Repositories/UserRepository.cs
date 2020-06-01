@@ -6,7 +6,7 @@ using BookSubscriptions.Core.Domain.Entities;
 using BookSubscriptions.Core.Dto;
 using BookSubscriptions.Core.Dto.GatewayResponses.Repositories;
 using BookSubscriptions.Core.Interfaces.Gateways.Repositories;
-using BookSubscriptions.Infrastructure.Data.Entities;
+
 
 namespace BookSubscriptions.Infrastructure.Data.EntityFramework.Repositories
 {
@@ -33,6 +33,8 @@ namespace BookSubscriptions.Infrastructure.Data.EntityFramework.Repositories
                 EmailConfirmed = true
             };
 
+
+
             var identityResult = await _userManager.CreateAsync(appUser, password);
             return new CreateUserResponse(appUser.Id,
                 identityResult.Succeeded,
@@ -50,6 +52,13 @@ namespace BookSubscriptions.Infrastructure.Data.EntityFramework.Repositories
         {
             return _mapper.Map<User>(await _userManager.FindByEmailAsync(email));
         }
+
+        public async Task<AppUser> FindByIdAsync(string id)
+        {
+            return await _userManager.FindByIdAsync(id.ToString());
+        }
+
+
 
         public async Task<bool> CheckPassword(User user, string password)
         {

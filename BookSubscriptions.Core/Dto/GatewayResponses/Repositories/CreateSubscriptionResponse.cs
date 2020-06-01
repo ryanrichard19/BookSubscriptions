@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
+using BookSubscriptions.Core.Domain.Entities;
 
 namespace BookSubscriptions.Core.Dto.GatewayResponses.Repositories
 {
     public sealed class CreateSubscriptionResponse : BaseGatewayResponse
     {
-        public IEnumerable<int> BooksIdList { get; }
-        public CreateSubscriptionResponse(IEnumerable<int> booksIdList, bool success = false, IEnumerable<Error> errors = null) : base(success, errors)
+        public IEnumerable<Subscribtion> UserSubscriptionList { get; }
+        public CreateSubscriptionResponse(IEnumerable<Subscribtion> userSubscriptionList, bool success = false, IEnumerable<Error> errors = null) : base(success, errors)
         {
-            BooksIdList = booksIdList;
+            UserSubscriptionList = userSubscriptionList;
         }
     }
 }

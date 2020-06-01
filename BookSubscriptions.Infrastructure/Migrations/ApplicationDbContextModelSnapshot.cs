@@ -16,39 +16,7 @@ namespace BookSubscriptions.Infrastructure.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.4");
 
-            modelBuilder.Entity("BookSubscriptions.Core.Domain.Entities.Book", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Author")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("Modified")
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("StarRating")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Books");
-                });
-
-            modelBuilder.Entity("BookSubscriptions.Infrastructure.Data.Entities.AppUser", b =>
+            modelBuilder.Entity("BookSubscriptions.Core.Domain.Entities.AppUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -121,16 +89,45 @@ namespace BookSubscriptions.Infrastructure.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("BookSubscriptions.Infrastructure.Data.Entities.Subscribtion", b =>
+            modelBuilder.Entity("BookSubscriptions.Core.Domain.Entities.Book", b =>
                 {
-                    b.Property<int>("AppUserId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Author")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Modified")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("StarRating")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("BookSubscriptions.Core.Domain.Entities.Subscribtion", b =>
+                {
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("BookId")
                         .HasColumnType("INTEGER");
-
-                    b.Property<string>("AppUserId1")
-                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("Created")
                         .HasColumnType("TEXT");
@@ -143,8 +140,6 @@ namespace BookSubscriptions.Infrastructure.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("AppUserId", "BookId");
-
-                    b.HasIndex("AppUserId1");
 
                     b.HasIndex("BookId");
 
@@ -279,11 +274,13 @@ namespace BookSubscriptions.Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("BookSubscriptions.Infrastructure.Data.Entities.Subscribtion", b =>
+            modelBuilder.Entity("BookSubscriptions.Core.Domain.Entities.Subscribtion", b =>
                 {
-                    b.HasOne("BookSubscriptions.Infrastructure.Data.Entities.AppUser", "AppUser")
+                    b.HasOne("BookSubscriptions.Core.Domain.Entities.AppUser", "AppUser")
                         .WithMany("Subscribtions")
-                        .HasForeignKey("AppUserId1");
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("BookSubscriptions.Core.Domain.Entities.Book", "Book")
                         .WithMany()
@@ -303,7 +300,7 @@ namespace BookSubscriptions.Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("BookSubscriptions.Infrastructure.Data.Entities.AppUser", null)
+                    b.HasOne("BookSubscriptions.Core.Domain.Entities.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -312,7 +309,7 @@ namespace BookSubscriptions.Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("BookSubscriptions.Infrastructure.Data.Entities.AppUser", null)
+                    b.HasOne("BookSubscriptions.Core.Domain.Entities.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -327,7 +324,7 @@ namespace BookSubscriptions.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BookSubscriptions.Infrastructure.Data.Entities.AppUser", null)
+                    b.HasOne("BookSubscriptions.Core.Domain.Entities.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -336,7 +333,7 @@ namespace BookSubscriptions.Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("BookSubscriptions.Infrastructure.Data.Entities.AppUser", null)
+                    b.HasOne("BookSubscriptions.Core.Domain.Entities.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

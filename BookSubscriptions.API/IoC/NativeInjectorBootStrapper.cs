@@ -8,7 +8,7 @@ using BookSubscriptions.Infrastructure.Data.EntityFramework.Repositories;
 using BookSubscriptions.Core.Interfaces.Services;
 using BookSubscriptions.Infrastructure.Auth;
 using Microsoft.AspNetCore.Identity;
-using BookSubscriptions.Infrastructure.Data.Entities;
+using BookSubscriptions.Core.Domain.Entities;
 
 namespace BookSubscriptions.API.IoC
 {
@@ -20,13 +20,16 @@ namespace BookSubscriptions.API.IoC
 
             services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
             services.AddSingleton<RegisterUserPresenter>();
+
             services.AddScoped<ILoginUseCase, LoginUseCase>();
             services.AddScoped<LoginPresenter>();
 
-            services.AddScoped<ILoginUseCase, LoginUseCase>();
+            services.AddScoped<ISubscribeToBookUseCase, SubscribeToBookUseCase>();
+            services.AddScoped<SubscribeToBookPresenter>();
 
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
             services.AddScoped<IJwtFactory, JwtFactory>();
             services.AddScoped<UserManager<AppUser>>();
 

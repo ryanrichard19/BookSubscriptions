@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using BookSubscriptions.Core.Domain.Entities;
-using BookSubscriptions.Infrastructure.Data.Entities;
 
 
 namespace BookSubscriptions.Infrastructure.Data.Mapping

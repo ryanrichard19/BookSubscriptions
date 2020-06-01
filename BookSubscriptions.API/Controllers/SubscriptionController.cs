@@ -13,7 +13,7 @@ namespace BookSubscriptions.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [EnableCors("CorsPolicy")]
-    [Authorize]
+    [AllowAnonymous]
     public class SubscriptionController : ControllerBase
     {
         private readonly ISubscribeToBookUseCase _subscribeToBookUseCase;
@@ -24,7 +24,7 @@ namespace BookSubscriptions.API.Controllers
             _subscribeToBookPresenter = subscribeToBookPresenter;
         }
 
-        [HttpGet]
+        [HttpPost]
         public async Task<ActionResult> BookSubscription([FromBody] Api.Models.Request.BookSubscriptionRequest request)
         {
             if (!ModelState.IsValid)

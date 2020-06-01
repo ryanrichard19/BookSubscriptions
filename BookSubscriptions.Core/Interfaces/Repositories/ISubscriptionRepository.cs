@@ -8,6 +8,6 @@ namespace BookSubscriptions.Core.Interfaces.Gateways.Repositories
 {
     public interface ISubscriptionRepository
     {
-        Task<CreateSubscriptionResponse> CreateAsync(User user, Book book);
+        Task<CreateSubscriptionResponse> CreateAsync(string userId, int bookId);
     }
 }

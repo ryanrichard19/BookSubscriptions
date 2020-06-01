@@ -9,7 +9,6 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
 using BookSubscriptions.Infrastructure.Data.EntityFramework;
 using BookSubscriptions.Infrastructure.Auth;
-using BookSubscriptions.Infrastructure.Data.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
@@ -19,6 +18,7 @@ using BookSubscriptions.Api.Extensions;
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 using BookSubscriptions.API.Configurations;
+using BookSubscriptions.Core.Domain.Entities;
 
 namespace BookSubscriptions.API
 {

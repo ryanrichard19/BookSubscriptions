@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using BookSubscriptions.Infrastructure.Data.Entities;
 using BookSubscriptions.Core.Domain.Entities;
 
 namespace BookSubscriptions.Infrastructure.Data.EntityFramework
@@ -42,6 +41,8 @@ namespace BookSubscriptions.Infrastructure.Data.EntityFramework
             return await base.SaveChangesAsync();
         }
         public DbSet<Book> Books { get; set; }
+        public DbSet<Subscribtion> Subscribtion { get; set; }
+        public DbSet<AppUser> AppUsers { get; set; }
 
 
         private void AddAuitInfo()

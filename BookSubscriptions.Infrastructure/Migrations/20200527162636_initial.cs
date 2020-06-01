@@ -177,23 +177,22 @@ namespace BookSubscriptions.Infrastructure.Migrations
                 name: "Subscribtion",
                 columns: table => new
                 {
-                    AppUserId = table.Column<int>(nullable: false),
+                    AppUserId = table.Column<string>(nullable: false),
                     BookId = table.Column<int>(nullable: false),
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Created = table.Column<DateTime>(nullable: false),
-                    Modified = table.Column<DateTime>(nullable: false),
-                    AppUserId1 = table.Column<string>(nullable: true)
+                    Modified = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Subscribtion", x => new { x.AppUserId, x.BookId });
                     table.ForeignKey(
-                        name: "FK_Subscribtion_AspNetUsers_AppUserId1",
-                        column: x => x.AppUserId1,
+                        name: "FK_Subscribtion_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Subscribtion_Books_BookId",
                         column: x => x.BookId,
@@ -244,11 +243,6 @@ namespace BookSubscriptions.Infrastructure.Migrations
                 table: "AspNetUsers",
                 column: "UserName",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Subscribtion_AppUserId1",
-                table: "Subscribtion",
-                column: "AppUserId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Subscribtion_BookId",

@@ -10,5 +10,6 @@ namespace BookSubscriptions.Core.Interfaces.Gateways.Repositories
         Task<User> FindByName(string userName);
         Task<User> FindByEmail(string email);
         Task<bool> CheckPassword(User user, string password);
+        Task<AppUser> FindByIdAsync(string id);
     }
 }
