@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
 
-namespace BookSubscriptions.Core.Domain.Entities
+namespace BookSubscriptions.Infrastructure.Data.Entities
 {
     // Add profile data for application users by adding properties to this class
     public class AppUser : IdentityUser

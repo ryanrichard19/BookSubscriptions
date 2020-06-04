@@ -1,15 +1,37 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookSubscriptions.API", "BookSubscriptions.API\BookSubscriptions.API.csproj", "{6A23AF4B-04E5-481E-BCE7-1194F5315939}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookSubscriptions.API", "BookSubscriptions.API\BookSubscriptions.API.csproj", "{6A23AF4B-04E5-481E-BCE7-1194F5315939}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookSubscriptions.Core", "BookSubscriptions.Core\BookSubscriptions.Core.csproj", "{57018DC6-BAB3-4CBB-9EB0-7286B43FFDBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookSubscriptions.Core", "BookSubscriptions.Core\BookSubscriptions.Core.csproj", "{57018DC6-BAB3-4CBB-9EB0-7286B43FFDBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookSubscriptions.Infrastructure", "BookSubscriptions.Infrastructure\BookSubscriptions.Infrastructure.csproj", "{6AFBCB6A-929B-42AF-9397-3030614E9821}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookSubscriptions.Infrastructure", "BookSubscriptions.Infrastructure\BookSubscriptions.Infrastructure.csproj", "{6AFBCB6A-929B-42AF-9397-3030614E9821}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookSubscriptions.Core.UnitTests", "BookSubscriptions.Core.UnitTests\BookSubscriptions.Core.UnitTests.csproj", "{300A2EF5-55A9-4D29-9CBF-11495C18146D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookSubscriptions.Core.UnitTests", "BookSubscriptions.Core.UnitTests\BookSubscriptions.Core.UnitTests.csproj", "{300A2EF5-55A9-4D29-9CBF-11495C18146D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookSubscriptions.API.UnitTests", "BookSubscriptions.API.UnitTests\BookSubscriptions.API.UnitTests.csproj", "{F797CC03-A5A0-4704-AEBC-770D52730423}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookSubscriptions.API.UnitTests", "BookSubscriptions.API.UnitTests\BookSubscriptions.API.UnitTests.csproj", "{F797CC03-A5A0-4704-AEBC-770D52730423}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BookSubscriptions.Client", "BookSubscriptions.Client\", "{29485333-D5C9-4D39-A6C4-932BA928CB71}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_51116"
+		Debug.AspNetCompiler.PhysicalPath = "BookSubscriptions.Client\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51116\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_51116"
+		Release.AspNetCompiler.PhysicalPath = "BookSubscriptions.Client\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51116\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "51116"
+		SlnRelativePath = "BookSubscriptions.Client\"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,5 +59,15 @@ Global
 		{F797CC03-A5A0-4704-AEBC-770D52730423}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F797CC03-A5A0-4704-AEBC-770D52730423}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F797CC03-A5A0-4704-AEBC-770D52730423}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29485333-D5C9-4D39-A6C4-932BA928CB71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29485333-D5C9-4D39-A6C4-932BA928CB71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29485333-D5C9-4D39-A6C4-932BA928CB71}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{29485333-D5C9-4D39-A6C4-932BA928CB71}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5EAAEE96-8D63-41D6-9C28-0A75F9A1B1D4}
 	EndGlobalSection
 EndGlobal
